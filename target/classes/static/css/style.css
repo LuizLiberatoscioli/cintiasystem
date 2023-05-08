@@ -1,0 +1,31 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2; /* adicionar uma cor de fundo */
+  border: 1px solid #ddd; /* adicionar uma borda */
+  padding: 20px; /* adicionar um espaçamento interno */
+  margin: 50px auto; /* centralizar o formulário na página */
+  width: 400px; /* definir uma largura para o formulário */
+}
+
+form h1 {
+  text-align: left; /* alinhar o texto à esquerda */
+  margin-bottom: 20px; /* adicionar um espaçamento abaixo do título */
+}
+
+form label {
+  display: block;
+  width: 100%; /* definir a largura das labels para ocupar todo o espaço disponível */
+  margin-bottom: 10px; /* adicionar um espaçamento abaixo das labels */
+  text-align: left; /* alinhar o texto à esquerda */
+}
+
+input {
+  width: 100%;
+}
+
+textarea.prontuario {
+  width: 100%;
+  height: 150px;
+}
