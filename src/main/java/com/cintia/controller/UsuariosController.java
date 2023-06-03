@@ -43,20 +43,27 @@ public class UsuariosController {
 	    return "mensagem-de-sucesso";
 	}
 	
+	
 	@PostMapping("/ver_usuarios")
 	public String pesquisarUsuarios(
-	    @RequestParam(required=false) String nome,
-	    @RequestParam(required=true) Integer cpf,
+	    @RequestParam(value = "nome", required = false) String nome,
+	    @RequestParam(value = "cpf", required = false) Integer cpf,
 	    Model model
 	) {
-	    List<Usuario> usuarios = null;
-	    if (nome != null && !nome.isEmpty()) {
+	    List<Usuario> usuarios;
+
+	    if (nome != null) {
 	        usuarios = usuarioRepository.findByNome(nome);
-	    } else {
+	    } else if (cpf != null) {
 	        usuarios = usuarioRepository.findByCpf(cpf);
+	    } else {
+	        // Caso nenhum parâmetro tenha sido fornecido, retorne uma resposta adequada
+	        model.addAttribute("mensagem", "Informe um nome ou CPF para pesquisar.");
+	        return "mensagem-de-erro";
 	    }
+
 	    model.addAttribute("usuarios", usuarios);
-	    return "lista-usuarios";
+	    return "lista_usuarios";
 	}
 
 }

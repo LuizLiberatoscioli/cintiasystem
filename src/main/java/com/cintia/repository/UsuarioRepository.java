@@ -9,7 +9,7 @@ import com.cintia.entity.Usuario;
 public interface UsuarioRepository extends JpaRepository<Usuario, Long>{
 
 	List<Usuario> findByNome(String nome);
-
-	List<Usuario> findByCpf(Integer cpf);
+	
+	List<Usuario> findByCpf (Integer cpf);
 
 }
